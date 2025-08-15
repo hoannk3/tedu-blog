@@ -1,0 +1,5 @@
+<div class="d-flex" [ngStyle]="{'justify-content': justifyContent}">
+    <button (click)="onUploadClick()" class="btn btn-primary" [disabled]="disabled"><i class="ti-export"></i></button>
+    <input class="d-none" type="file" #fileInput [accept]="allowAllFiles ? '*' : '.xlsx'" (click)="onFileInputClick()"
+        (change)="onFileSelected($event)">
+</div>

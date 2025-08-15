@@ -1,0 +1,22 @@
+<div [id]="id" tabindex="-1" aria-hidden="true" class="modal fade">
+    <div class="modal-dialog" role="document" [style.max-width]="width" style="width: 100%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="default-modal">{{titleApp}}</h5>
+                <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center">
+                <ng-content></ng-content>
+            </div>
+            <div class="modal-footer">
+                @if (changeFooter) {
+                <ng-content select="[footer]"></ng-content>
+                }
+                @else {
+                <button type="button" class="btn btn-primary" (click)="confirm()">OK</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>

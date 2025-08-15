@@ -1,0 +1,40 @@
+mat-form-field {
+    width: 100%;
+}
+
+::ng-deep .mtx-calendar-header-date {
+    font-size: 0.6em !important; /* Adjust the size as needed */
+  }
+
+::ng-deep .mtx-calendar-header-hours, 
+::ng-deep .mtx-calendar-header-minutes {
+    font-size: 0.9em !important; /* Adjust the size as needed */
+  }
+
+.invisible-input-value {
+  opacity: 0 !important;
+  color: transparent !important;
+}
+
+/* TODO: ensure datepicker on top when using modal */
+::ng-deep .cdk-overlay-container {
+    z-index: 9999 !important;
+}
+
+::ng-deep .mat-mdc-form-field-icon-suffix {
+    display: flex;
+    align-items: center;
+}
+
+.close-datetime{
+    display: block;
+    cursor: pointer;
+    color: #999;
+    font-size: 14px;
+    width: 17px;
+}
+
+.close-datetime:hover{
+    color: red;
+}
+  

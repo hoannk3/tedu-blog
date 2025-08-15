@@ -1,0 +1,6 @@
+<div class="row justify-content-end">
+    <div style="display: flex; justify-content: flex-end;">
+        <button (click)="onUploadClick()" class="btn btn-primary">{{ label }}</button>
+        <input type="file" #fileInput accept=".csv" style="display: none;" (click)="onFileInputClick()" (change)="onFileSelected($event)" >
+    </div>
+</div>

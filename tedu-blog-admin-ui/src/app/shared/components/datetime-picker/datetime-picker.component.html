@@ -1,0 +1,13 @@
+<mat-form-field appearance="outline" (focusout)="onBlur()" (blur)="onBlur()">
+    <mtx-datetimepicker [disabled]="isDisabled" #datetimePicker (selectedChanged)="handleDateTimePicked($event)"
+        [type]="typeDate" [mode]="mode" [multiYearSelector]="multiYearSelector" [startView]="startView"
+        [twelvehour]="twelvehour" [timeInterval]="timeInterval" [touchUi]="touchUi"
+        [timeInput]="timeInput"></mtx-datetimepicker>
+    <input [ngClass]="{ 'invisible-input-value': isCheckInput }" [(ngModel)]="selectedValue"
+        [formControlName]="formControlName" [readonly]="true" [mtxDatetimepicker]="datetimePicker"
+        [formControl]="datetime" matInput [min]="minDate" [max]="maxDate" (click)="onOpen()">
+    <span *ngIf="clear && selectedValue" matSuffix class="close-datetime" (click)="onClear()">
+        ×
+    </span>
+    <mtx-datetimepicker-toggle [for]="datetimePicker" matSuffix></mtx-datetimepicker-toggle>
+</mat-form-field>

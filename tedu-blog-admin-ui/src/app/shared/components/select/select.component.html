@@ -1,0 +1,13 @@
+<ng-select [items]="data" bindLabel="label" bindValue="value" [virtualScroll]="true" (change)="onSelectedValue($event)"
+    [placeholder]="placeHolder" [dropdownPosition]="dropdownPosition" [(ngModel)]="selectedValue"
+    (search)="search($event)" [readonly]="disabled" [searchable]="enableSearch" class="ng-select-custom-css"
+    [clearable]="clearable" [notFoundText]="'アイテムが見つかりません'" [loading]="dataLoading" loadingText="読み込み中..."
+    [appendTo]="appendTo" (open)="handleOpen()" (close)="handleClose()" (keydown)="onKeydown($event)"
+    (clear)="onClear()" (scrollToEnd)="onScrollToEnd()">
+    <ng-template ng-label-tmp let-item="item">
+        {{ item?.label ? item.label : (selectedValue != null && selectedValue !== undefined ? selectedValue : '') }}
+    </ng-template>
+    <ng-template ng-option-tmp let-item="item" let-disabled="disabled">
+        <div title="{{item.label}}" class="selected-label">{{ item.label }}</div>
+    </ng-template>
+</ng-select>

@@ -1,0 +1,28 @@
+<div class="dataTables_wrapper clearfix">
+    <div class="dataTables_info" *ngIf="showTotal" role="status" aria-live="polite">
+        {{ total!== 0 ?((current - 1) * pageSize) + 1 : total }} - {{ current *
+        pageSize >= total ? total: current * pageSize }}/
+        全
+        {{ total }} 件
+    </div>
+
+    <div class="dataTables_paginate paging_simple_numbers" [hidden]="total === 0">
+        <a class="paginate_button previous disabled" *ngIf="current !== 1" (click)="onPrevious()"
+            (keyup.enter)="onPrevious()" tabindex="0">
+            <i class="ti-arrow-left"></i>
+        </a>
+
+        <span *ngFor="let page of pages;">
+            <a [attr.aria-current]="page === current ? 'page' : null" [attr.aria-label]="
+                page === current ? 'Current Page, Page ' + page : 'Go to Page ' + page
+              " [class.current]="page === current" *ngIf="page !== -1" tabindex="0" (click)="onGoTo(page)"
+                (keyup.enter)="onGoTo(page)" class="paginate_button">
+                {{ (page === -1 ? "..." : page) }}</a>
+            {{ (page === -1 ? "..." : '') }}
+        </span>
+        <a class="paginate_button next disabled" *ngIf="current !== totalPage" (click)="onNext()"
+            (keyup.enter)="onPrevious()" tabindex="0">
+            <i class="ti-arrow-right"></i>
+        </a>
+    </div>
+</div>
